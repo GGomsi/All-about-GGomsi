@@ -1,0 +1,156 @@
+---------------자바------------------
+
+float vs double
+
+두가지 int를 받아서 나눌때 소숫점이 발생할 수 있기 떄문에
+
+계산식에 float 혹은 double을 적어준다
+
+float는 16자리를 얻고 double은 32자리를 얻기 때문에
+
+double이 더욱 정확한 값을 얻을 수 있다.
+
+
+
+
+배열 평균 구하기
+
+
+import java.util.Arrays;
+
+class Solution {
+    public double solution(int[] numbers) {
+        return Arrays.stream(numbers).average().orElse(0);
+    }
+}
+
+
+
+세균 증식 ( 원래 개수의 2^t 배로 증가 )
+
+
+class Solution {
+    public int solution(int n, int t) {
+        
+        for(int i = 0; i<t; i++){
+            n *= 2;
+        }
+        
+        return n;
+    }
+}
+
+
+문자열 뽑기
+
+public class G1 {
+	public static void main(String[] args) {
+		String a = "HI";
+		System.out.println(a.charAt(0));
+	}
+}
+결과값 = H
+
+
+================문자열 찾기=================
+
+str1.indexOf(str2)
+
+
+
+==========int 배열 오름차순==========
+        int num = 0;
+        int n = 0;
+        while(n<sides.length-1){
+            for(int i = 0; i<sides.length; i++){
+                if(i==sides.length-1){
+                    n += 1;
+                }else if(sides[i]>sides[i+1]){
+                    num = sides[i];
+                    sides[i] = sides[i+1];
+					sides[i+1] = num;
+                }
+            }
+        }
+
+
+
+
+
+
+========숫자 각 자리 더하기 or 숫자 배열에 넣기 or 숫자 비교하기 등등 정말 중요=======
+
+
+class Solution {
+    public int solution(int n) {
+        int answer = 0;
+
+        while(n>0){
+            answer+=n%10;
+            n/=10;
+        }
+
+        return answer;
+    }
+}
+
+
+==============Integer.parseInt vs Long.parseLong===========
+
+int만 쓰는게 아니다 숫자의 길이가 길어지면 다 받지 못하기 때문에 그런 경우 Long을 써준다.
+
+물론 Short, Double, Float도 있다.
+
+
+
+===========Integer.parseInt vs valueOf(String)=============
+
+parse는 '숫자'만 받아야한다.
+
+하지만 valueOf는 null을 받으면 0으로 바꿔버린다.
+
+
+
+==========List의 array 화 시키기 toArray(new Integer[0])===========
+1. List를 toArray 메서드에 파라미터로 넘어가는 배열 객체의 size만큼의 배열로 전환한다.
+2. 단, 해당 List size가 인자로 넘어가는 배열 객체의 size보다 클때, 해당 List의 size로 배열이 만들어진다.
+3. 반대로 해당 List size가 인자로 넘어가는 배열객체의 size보다 작을때는, 인자로 넘어가는 배열객체의 size로 배열이 만들어진다.
+
+********
+array를 계속 초기화 하는 방법을 꼭 알아내라
+그리고 List 랑 array의 전환과 확실한 차이를 알아내야됨
+
+
+
+===========ReplaceAll vs Replace vs ReplaceFirst================
+
+
+정규표현식 쓰려면 ReplaceAll
+특수문자 받으려면 Replace
+하나만 지우려면 ReplaceFirst
+
+
+
+
+==========컴파일러 언어 vs 인터프리터 언어============
+-컴파일러 언어-
+
+자바 c
+
+
+
+-인터프리터 언어-
+
+
+파이썬 자바스크립트
+
+
+
+=======================CSV========================
+
+sql
+두개의 테이블을 이용해서 하나의 테이블로 표현하고 값을 두 테이블에서 뽑아올 수 있다!
+csv는 comma sep value 이다 ,와 엔터로 행과 열을 구분한다.
+
+파이썬으로 저장할때 sep를 ,(default)가 아닌 다른 값으로 지정 ex> | 으로 하면 db에 넣을때
+더 정확한 구분이 가능하다
